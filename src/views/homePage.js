@@ -5,7 +5,7 @@ const section = document.getElementById('home-page');
 const catalog = document.querySelector('#movie .card-deck.d-flex.justify-content-center');
 
 export function homePage() {
-
+    showView(section);
     displayMovies();
 };
 
@@ -17,10 +17,9 @@ async function displayMovies() {
 
 function createMoviePreview(movie) {
     const element = document.createElement('div');
-    element.className = 'card mb-4';
+    element.className = 'movie-card';
     element.innerHTML = `
-    <img class="card-img-top" src="${movie.img}"
-        alt="Card image cap" width="400">
+    <img class="card-img-top" src="${movie.posterUrl}" alt="Card image cap" width="400">
     <div class="card-body">
         <h4 class="card-title">${movie.title}</h4>
     </div>
@@ -32,3 +31,4 @@ function createMoviePreview(movie) {
 
     return element;
 }
+
