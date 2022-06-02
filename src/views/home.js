@@ -1,5 +1,5 @@
 import { getMovies } from '../services/api.js';
-import { showView } from '../util.js';
+import { showView, spinner } from '../util.js';
 
 const section = document.getElementById('home-page');
 const catalog = document.querySelector('#movie .card-deck.d-flex.justify-content-center');
@@ -10,6 +10,7 @@ export function homePage() {
 };
 
 async function displayMovies() {
+    catalog.replaceChildren(spinner());
 
     const movies = await getMovies();
     catalog.replaceChildren(...movies.map(createMoviePreview))

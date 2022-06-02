@@ -9,6 +9,13 @@ export function showView(section) {
     section.style.display = 'block';
 }
 
+export function spinner() {
+    const element = document.createElement('p');
+    element.innerHTML = 'Loading &hellip;';
+
+    return element;
+}
+
 export function updateNav() {
     const user = JSON.parse(localStorage.getItem('user'));
     const msgContaier = document.getElementById('welcome-msg');
