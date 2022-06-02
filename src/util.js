@@ -11,6 +11,7 @@ export function showView(section) {
 
 export function spinner() {
     const element = document.createElement('p');
+    element.setAttribute('class', 'spiner')
     element.innerHTML = 'Loading &hellip;';
 
     return element;

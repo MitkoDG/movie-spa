@@ -67,7 +67,7 @@ function createControls(movie, user, ownLike) {
 }
 
 async function getMovie(id) {
-    const urlForFetch = `${herokuMoviesId}${id}`
+    const urlForFetch = `http://ddg-server.herokuapp.com/data/movies/${id}`
     const res = await fetch(urlForFetch);
     const movie = await res.json();
 

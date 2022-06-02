@@ -32,4 +32,3 @@ function createMoviePreview(movie) {
 
     return element;
 }
-

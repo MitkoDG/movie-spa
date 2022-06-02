@@ -14,6 +14,11 @@
     flex-wrap: wrap;
 }
 
+.spiner {
+    color: red;
+    text-align: center;
+}
+
 .card-img-top {
     width: 100%;
     height: 15vw;
