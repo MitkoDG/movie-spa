@@ -1,7 +1,7 @@
 This is a JavaScript project about JavaScript SPA.
 
 App details:
-- you can register and login yourself ( or use demo account george@abv.bg / 123456 )
+- you can register and login yourself ( or use demo account admin@abv.bg / admin )
 - when you login, you are able to add new Movie
 - planning to add details, edit, delete and like functionality
 
