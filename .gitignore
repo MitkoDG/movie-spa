@@ -1,1 +1,5 @@
 /node_modules/
+/public/
+.firebaserc
+*.cache
+firebase.json

@@ -1,7 +1,7 @@
 import { showView, spinner } from '../util.js';
 
-const herokuMoviesId = 'http://ddg-server.herokuapp.com/data/movies/'
-const herokuMoviesLikes = 'http://ddg-server.herokuapp.com/data/likes/'
+const herokuMoviesId = 'https://ddg-server.herokuapp.com/data/movies/'
+const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
 
 const section = document.querySelector('#movie-example');
 
@@ -67,7 +67,7 @@ function createControls(movie, user, ownLike) {
 }
 
 async function getMovie(id) {
-    const urlForFetch = `http://ddg-server.herokuapp.com/data/movies/${id}`
+    const urlForFetch = `https://ddg-server.herokuapp.com/data/movies/${id}`
     const res = await fetch(urlForFetch);
     const movie = await res.json();
 
@@ -75,7 +75,7 @@ async function getMovie(id) {
 }
 
 async function getLikes(id) {
-    const res = await fetch(`http://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${id}%22&distinct=_ownerId&count`);
+    const res = await fetch(`https://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${id}%22&distinct=_ownerId&count`);
     const likes = await res.json();
 
     return likes;
@@ -86,7 +86,7 @@ async function getOwnLike(movieId, user) {
         return false;
     } else {
         const userId = user._id;
-        const res = await fetch(`http://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`);
+        const res = await fetch(`https://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`);
         const like = await res.json();
 
         return like.length > 0;

@@ -1,7 +1,7 @@
 import { homePage } from './home.js';
 import { showView } from '../util.js';
 
-const herokuMovies = 'http://ddg-server.herokuapp.com/data/movies'
+const herokuMovies = 'https://ddg-server.herokuapp.com/data/movies'
 
 const section = document.querySelector('#add-movie');
 const form = section.querySelector('form');

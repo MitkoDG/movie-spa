@@ -1,7 +1,7 @@
 import { showView, updateNav } from '../util.js';
 import { homePage } from './home.js';
 
-const herokuAuth = 'http://ddg-server.herokuapp.com/users/register'
+const herokuAuth = 'https://ddg-server.herokuapp.com/users/register'
 
 const section = document.querySelector('#form-sign-up');
 const form = section.querySelector('form');

@@ -1,5 +1,5 @@
 
-const herokuMoviesList = 'http://ddg-server.herokuapp.com/data/movies/'
+const herokuMoviesList = 'https://ddg-server.herokuapp.com/data/movies/'
 
 export async function getMovies() {
     const responce = await fetch(herokuMoviesList);
