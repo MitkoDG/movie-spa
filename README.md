@@ -1,4 +1,4 @@
-This is a JavaScript project about JavaScript SPA.
+This is a project about JavaScript SPA.
 
 App details:
 - you can register and login yourself ( or use demo account admin@abv.bg / admin )
