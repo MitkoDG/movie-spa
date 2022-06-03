@@ -1,9 +1,10 @@
-This is a project about JavaScript SPA.
+This is a project about JavaScript SPA without using libraries.
 
 App details:
 - you can register and login yourself ( or use demo account admin@abv.bg / admin )
 - when you login, you are able to add new Movie
-- planning to add details, edit, delete and like functionality
+- details view for each movie where if you are the creator of the movie you have options - edit and delete 
+- like functionality exept if you are the owner
 
 
 Try it now -> [Demo](https://movies-spa.dimitargegov.com/) !!!
