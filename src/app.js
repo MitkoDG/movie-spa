@@ -11,8 +11,6 @@ const routes = {
     '/logout': logout,
     '/create': createPage,
     '/register': registerPage,
-    '/details/:id': detailsPage,
-
 };
 
 document.querySelector('nav').addEventListener('click', onNavigate);
@@ -34,12 +32,6 @@ function onNavigate(event) {
             view();
         }
     }
-    // if (event.target.tagName == 'BUTTON') {
-    //     event.preventDefault();
-    //     const movieId = event.target.dataset.id
-    //     detailsPage(movieId);
-    // }
-
 }
 
 function logout() {

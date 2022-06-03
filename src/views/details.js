@@ -44,7 +44,17 @@ function createMovieCard(movie, user, likes, ownLike) {
     const likeBtn = element.querySelector('.like-btn');
     if (likeBtn) {
         likeBtn.addEventListener('click', (e) => likeMovie(e, movie._id));
-    }   
+    } 
+    
+    const editBtn = element.querySelector('.btn-warning');
+    if (editBtn) {
+        editBtn.addEventListener('click', (e) => console.log('TODO: edit option'));
+    } 
+
+    const deleteBtn = element.querySelector('.btn-danger');
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', (e) => console.log('TODO: delete option'));
+    } 
 
     return element;
 }
