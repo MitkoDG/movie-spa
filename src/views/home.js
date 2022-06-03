@@ -1,8 +1,17 @@
 import { getMovies } from '../services/api.js';
 import { showView, spinner } from '../util.js';
+import { detailsPage } from './details.js';
 
 const section = document.getElementById('home-page');
 const catalog = document.querySelector('#movie .card-deck.d-flex.justify-content-center');
+
+catalog.addEventListener('click', (event)=>{
+    if (event.target.tagName == 'BUTTON') {
+        event.preventDefault();
+        const id = event.target.dataset.id
+        detailsPage(id);
+    }
+});
 
 export function homePage() {
     showView(section);

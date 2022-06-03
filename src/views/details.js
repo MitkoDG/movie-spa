@@ -7,7 +7,7 @@ const section = document.querySelector('#movie-example');
 export function detailsPage(id) {
     showView(section);
     displayMovie(id);
-}
+};
 
 async function displayMovie(id) {
     section.replaceChildren(spinner());
@@ -31,7 +31,7 @@ function createMovieCard(movie, user, likes, ownLike) {
         <h1>Movie title: ${movie.title}</h1>
 
         <div class="col-md-8">
-            <img class="img-thumbnail" src="${movie.img}" alt="Movie">
+            <img class="img-thumbnail" src="${movie.posterUrl}" alt="Movie">
         </div>
         <div class="col-md-4 text-center">
             <h3 class="my-3 ">Movie Description</h3>
@@ -44,7 +44,7 @@ function createMovieCard(movie, user, likes, ownLike) {
     const likeBtn = element.querySelector('.like-btn');
     if (likeBtn) {
         likeBtn.addEventListener('click', (e) => likeMovie(e, movie._id));
-    }
+    }   
 
     return element;
 }
