@@ -1,7 +1,8 @@
 import { homePage } from './home.js';
 import { showView } from '../util.js';
+import { createMovie } from '../services/api.js';
 
-const herokuMovies = 'https://ddg-server.herokuapp.com/data/movies'
+
 
 const section = document.querySelector('#add-movie');
 const form = section.querySelector('form');
@@ -24,14 +25,3 @@ async function onSubmit(event) {
     homePage();
 }
 
-async function createMovie(title, description, posterUrl) {
-    const user = JSON.parse(localStorage.getItem('user'));
-    await fetch(herokuMovies, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Authorization': user.accessToken
-        },
-        body: JSON.stringify({ title, description, posterUrl })
-    });
-}

@@ -1,6 +1,5 @@
 import { showView, spinner } from '../util.js';
 
-const herokuMoviesId = 'https://ddg-server.herokuapp.com/data/movies/'
 const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
 
 const section = document.querySelector('#movie-example');

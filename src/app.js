@@ -17,21 +17,40 @@ const routes = {
 
 document.querySelector('nav').addEventListener('click', onNavigate);
 document.querySelector('#add-movie-button a').addEventListener('click', onNavigate);
+document.querySelector('#movie').addEventListener('click', onNavigate);
 
 
 
 
 function onNavigate(event) {
-    if (event.target.tagName == 'A' && event.target.href) {
+
+    if (event.target.tagName == 'BUTTON') {
         event.preventDefault();
+        console.log(event.target.tagName);
+        console.log(event.target.href);
 
         const url = new URL(event.target.href);
+        console.log(url);
         const view = routes[url.pathname];
 
         if (typeof view == 'function') {
             view();
         }
-    } 
+    }
+
+    if (event.target.tagName == 'A' && event.target.href ) {
+        event.preventDefault();
+        console.log(event.target.tagName);
+        console.log(event.target.href);
+
+        const url = new URL(event.target.href);
+        console.log(url);
+        const view = routes[url.pathname];
+
+        if (typeof view == 'function') {
+            view();
+        }
+    }
 
 }
 

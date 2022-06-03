@@ -18,10 +18,18 @@ async function onSubmit(event) {
     const email = formData.get('email');
     const password = formData.get('password');
 
-    await login(email, password);
-    form.reset();
-    updateNav();
-    homePage();
+    if (!email || !password) {
+        alert("All fields are required!");
+    }
+    else if (password < 6) {
+        alert("Password should be at least 6 character long !");
+    }
+    else {
+        await login(email, password);
+        form.reset();
+        updateNav();
+        homePage();
+    }
 }
 
 async function login(email, password) {
