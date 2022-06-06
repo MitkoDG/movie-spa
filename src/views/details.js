@@ -1,3 +1,4 @@
+import { getLikes, getMovie, getOwnLike } from '../services/api.js';
 import { showView, spinner } from '../util.js';
 
 const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
@@ -45,6 +46,11 @@ function createMovieCard(movie, user, likes, ownLike) {
     if (likeBtn) {
         likeBtn.addEventListener('click', (e) => likeMovie(e, movie._id));
     } 
+
+    const dislikeBtn = element.querySelector('.dislike-btn');
+    if (dislikeBtn) {
+        dislikeBtn.addEventListener('click', (e) => dislikeMovie(e, movie._id));
+    } 
     
     const editBtn = element.querySelector('.btn-warning');
     if (editBtn) {
@@ -69,38 +75,14 @@ function createControls(movie, user, ownLike) {
         controls.push('<a class="btn btn-warning" href="#">Edit</a>');
     } else if (user && ownLike == false) {
         controls.push('<a class="btn btn-primary like-btn" href="#">Like</a>');
-    }
+    } else if (user && ownLike == true) {
+        controls.push('<a class="btn btn-primary dislike-btn" href="#">DisLike</a>');
+    } 
     controls.push();
 
     return controls.join('');
 }
 
-async function getMovie(id) {
-    const urlForFetch = `https://ddg-server.herokuapp.com/data/movies/${id}`
-    const res = await fetch(urlForFetch);
-    const movie = await res.json();
-
-    return movie;
-}
-
-async function getLikes(id) {
-    const res = await fetch(`https://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${id}%22&distinct=_ownerId&count`);
-    const likes = await res.json();
-
-    return likes;
-}
-
-async function getOwnLike(movieId, user) {
-    if (!user) {
-        return false;
-    } else {
-        const userId = user._id;
-        const res = await fetch(`https://ddg-server.herokuapp.com/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`);
-        const like = await res.json();
-
-        return like.length > 0;
-    }
-}
 
 async function likeMovie(e, movieId) {
     e.preventDefault();
@@ -119,4 +101,10 @@ async function likeMovie(e, movieId) {
     });
 
     detailsPage(movieId);
+}
+
+async function dislikeMovie(e, movieId) {
+    e.preventDefault();
+
+    console.log('Missing server configuration to Dislike');
 }
