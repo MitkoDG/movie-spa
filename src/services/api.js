@@ -1,7 +1,7 @@
 
 const herokuMoviesList = 'https://ddg-server.herokuapp.com/data/movies'
 const herokuRegister = 'https://ddg-server.herokuapp.com/users/register'
-
+const herokuMovieDelete = 'https://ddg-server.herokuapp.com/data/movies/'
 
 export async function getMovies() {
     const responce = await fetch(herokuMoviesList);
@@ -51,9 +51,9 @@ export async function createMovie(title, description, posterUrl) {
 
 export async function register(email, password) {
     try {
-        const res = await fetch(herokuRegister,{
+        const res = await fetch(herokuRegister, {
             method: 'POST',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -66,11 +66,20 @@ export async function register(email, password) {
             throw new Error(error.message)
         };
         const user = await res.json();
-        localStorage.setItem('user',JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
     } catch (err) {
         alert(err.message)
         throw err;
     }
 }
 
+export async function delMovie(event, user, movieId) {
+    fetch(`${herokuMovieDelete}${movieId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.accessToken
+        },
+    })
+}
 

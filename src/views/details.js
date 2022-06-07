@@ -1,5 +1,6 @@
-import { getLikes, getMovie, getOwnLike } from '../services/api.js';
+import { delMovie, getLikes, getMovie, getOwnLike } from '../services/api.js';
 import { showView, spinner } from '../util.js';
+import { homePage } from './home.js';
 
 const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
 
@@ -45,22 +46,22 @@ function createMovieCard(movie, user, likes, ownLike) {
     const likeBtn = element.querySelector('.like-btn');
     if (likeBtn) {
         likeBtn.addEventListener('click', (e) => likeMovie(e, movie._id));
-    } 
+    }
 
     const dislikeBtn = element.querySelector('.dislike-btn');
     if (dislikeBtn) {
         dislikeBtn.addEventListener('click', (e) => dislikeMovie(e, movie._id));
-    } 
-    
+    }
+
     const editBtn = element.querySelector('.btn-warning');
     if (editBtn) {
         editBtn.addEventListener('click', (e) => console.log('TODO: edit option'));
-    } 
+    }
 
     const deleteBtn = element.querySelector('.btn-danger');
     if (deleteBtn) {
-        deleteBtn.addEventListener('click', (e) => console.log('TODO: delete option'));
-    } 
+        deleteBtn.addEventListener('click', (e) => deleteMovie(e, movie._id));
+    }
 
     return element;
 }
@@ -77,7 +78,7 @@ function createControls(movie, user, ownLike) {
         controls.push('<a class="btn btn-primary like-btn" href="#">Like</a>');
     } else if (user && ownLike == true) {
         controls.push('<a class="btn btn-primary dislike-btn" href="#">DisLike</a>');
-    } 
+    }
     controls.push();
 
     return controls.join('');
@@ -107,4 +108,20 @@ async function dislikeMovie(e, movieId) {
     e.preventDefault();
 
     console.log('Missing server configuration to Dislike');
+}
+
+async function editMovie(e, movieId) {
+    e.preventDefault();
+
+
+}
+
+async function deleteMovie(e, movieId) {
+    e.preventDefault();
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    await delMovie(e, user, movieId);
+
+    setTimeout(homePage, 5000);
 }
