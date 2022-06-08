@@ -1,5 +1,6 @@
 import { delMovie, getLikes, getMovie, getOwnLike } from '../services/api.js';
 import { showView, spinner } from '../util.js';
+import { editPage } from './edit.js';
 import { homePage } from './home.js';
 
 const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
@@ -55,7 +56,7 @@ function createMovieCard(movie, user, likes, ownLike) {
 
     const editBtn = element.querySelector('.btn-warning');
     if (editBtn) {
-        editBtn.addEventListener('click', (e) => console.log('TODO: edit option'));
+        editBtn.addEventListener('click', (e) => editPage(e, movie));
     }
 
     const deleteBtn = element.querySelector('.btn-danger');
@@ -73,7 +74,7 @@ function createControls(movie, user, ownLike) {
 
     if (isOwner) {
         controls.push('<a class="btn btn-danger" href="#">Delete</a>');
-        controls.push('<a class="btn btn-warning" href="#">Edit</a>');
+        controls.push('<a class="btn btn-warning" href="/edit">Edit</a>');
     } else if (user && ownLike == false) {
         controls.push('<a class="btn btn-primary like-btn" href="#">Like</a>');
     } else if (user && ownLike == true) {
@@ -112,6 +113,7 @@ async function dislikeMovie(e, movieId) {
 
 async function editMovie(e, movieId) {
     e.preventDefault();
+
 
 
 }

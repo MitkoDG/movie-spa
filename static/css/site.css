@@ -58,3 +58,9 @@
 .view-section {
     display: none;
 }
+
+nav.paginationn {
+    margin-top: 10px;
+    color: aqua;
+    justify-content: center;
+}

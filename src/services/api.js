@@ -83,3 +83,6 @@ export async function delMovie(event, user, movieId) {
     })
 }
 
+export async function patchMovie(title, description, img, id) {
+    
+}

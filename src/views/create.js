@@ -15,11 +15,9 @@ export function createPage() {
 async function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(form);
-
     const title = formData.get('title');
     const description = formData.get('description');
     const img = formData.get('imageUrl');
-    console.log(img);
     await createMovie(title, description, img);
     form.reset();
     homePage();

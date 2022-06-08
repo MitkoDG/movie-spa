@@ -1,6 +1,7 @@
 import { updateNav } from "./util.js";
 import { createPage } from "./views/create.js";
 import { detailsPage } from "./views/details.js";
+import { editPage } from "./views/edit.js";
 import { homePage } from "./views/home.js";
 import { loginPage } from "./views/login.js";
 import { registerPage } from "./views/register.js";
@@ -11,6 +12,7 @@ const routes = {
     '/logout': logout,
     '/create': createPage,
     '/register': registerPage,
+    '/edit': editPage,
 };
 
 document.querySelector('nav').addEventListener('click', onNavigate);
