@@ -1,7 +1,7 @@
 
 const herokuMoviesList = 'https://ddg-server.herokuapp.com/data/movies'
-const herokuRegister = 'https://ddg-server.herokuapp.com/users/register'
 const herokuMovieDelete = 'https://ddg-server.herokuapp.com/data/movies/'
+const herokuRegister = 'https://ddg-server.herokuapp.com/users/register'
 
 export async function getMovies() {
     const responce = await fetch(herokuMoviesList);
@@ -83,6 +83,15 @@ export async function delMovie(event, user, movieId) {
     })
 }
 
-export async function patchMovie(title, description, img, id) {
-    
+export async function patchMovie(title, description, img, movieId) {
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    await fetch(`${herokuMovieDelete}${movieId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': user.accessToken
+        },
+        body: JSON.stringify({ title, description, posterUrl: img })
+    });
 }

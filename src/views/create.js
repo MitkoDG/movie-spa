@@ -16,6 +16,7 @@ async function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(form);
     const title = formData.get('title');
+
     const description = formData.get('description');
     const img = formData.get('imageUrl');
     await createMovie(title, description, img);

@@ -111,19 +111,14 @@ async function dislikeMovie(e, movieId) {
     console.log('Missing server configuration to Dislike');
 }
 
-async function editMovie(e, movieId) {
-    e.preventDefault();
-
-
-
-}
-
 async function deleteMovie(e, movieId) {
     e.preventDefault();
-
     const user = JSON.parse(localStorage.getItem('user'));
+
+    let btn = e.target;
+    btn.style.backgroundColor = 'grey';
 
     await delMovie(e, user, movieId);
 
-    setTimeout(homePage, 5000);
+    setTimeout(homePage, 3000);
 }

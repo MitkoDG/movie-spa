@@ -11,28 +11,11 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-            var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-            j.async = true;
-            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-WQ3RV5L");
-        </script>
-    <!-- End Google Tag Manager -->
     <script src="/src/app.js" type="module"></script>
   </head>
 
   <body>
-      <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ3RV5L"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
     <div class="container" id="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand text-light" href="/">Movies</a>
@@ -176,6 +159,7 @@
           <div class="form-group">
             <label for="description">Movie Description</label>
             <textarea
+            id="description"
               class="form-control"
               placeholder="Movie Description..."
               name="description"
@@ -277,5 +261,22 @@
         </div>
       </footer>
     </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8gWOPX9kHU0WvHLGqofy1z9u3S6iOiKo",
+        authDomain: "movie-spa-ddg.firebaseapp.com",
+        projectId: "movie-spa-ddg",
+        storageBucket: "movie-spa-ddg.appspot.com",
+        messagingSenderId: "858685208272",
+        appId: "1:858685208272:web:1411d6d6e31309c85190d5",
+        measurementId: "G-0R1CFGF4VG"
+      };
+    
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
   </body>
 </html>
