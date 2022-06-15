@@ -2,6 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0R1CFGF4VG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0R1CFGF4VG");
+    </script>
     <title>Movie SPA - JavaScript</title>
     <link rel="icon" type="image/png" href="/static/favicon.ico" />
     <link href="/static/css/site.css" type="text/css" rel="stylesheet" />
@@ -15,7 +28,6 @@
   </head>
 
   <body>
-
     <div class="container" id="container">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand text-light" href="/">Movies</a>
@@ -68,14 +80,11 @@
               >
                 <!-- movie list -->
               </div>
-              
             </div>
           </div>
         </section>
-        
       </section>
-      
-      
+
       <!-- create -->
       <section id="add-movie" class="view-section">
         <form class="text-center border border-light p-5" action="#" method="">
@@ -159,7 +168,7 @@
           <div class="form-group">
             <label for="description">Movie Description</label>
             <textarea
-            id="description"
+              id="description"
               class="form-control"
               placeholder="Movie Description..."
               name="description"
@@ -272,9 +281,9 @@
         storageBucket: "movie-spa-ddg.appspot.com",
         messagingSenderId: "858685208272",
         appId: "1:858685208272:web:1411d6d6e31309c85190d5",
-        measurementId: "G-0R1CFGF4VG"
+        measurementId: "G-0R1CFGF4VG",
       };
-    
+
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
     </script>
