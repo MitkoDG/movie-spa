@@ -3,7 +3,7 @@ import { showView, spinner } from '../util.js';
 import { editPage } from './edit.js';
 import { homePage } from './home.js';
 
-const herokuMoviesLikes = 'https://ddg-server.herokuapp.com/data/likes/'
+const herokuMoviesLikes = 'https://ddg-server.cyclic.app/data/likes/'
 
 const section = document.querySelector('#movie-example');
 

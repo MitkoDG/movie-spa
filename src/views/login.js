@@ -1,7 +1,7 @@
 import { homePage } from './home.js';
 import { showView, updateNav } from '../util.js';
 
-const herokuAuth = 'https://ddg-server.herokuapp.com/users/login'
+const herokuAuth = 'https://ddg-server.cyclic.app/users/login'
 
 const section = document.querySelector('#form-login');
 const form = section.querySelector('form');
