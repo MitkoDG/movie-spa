@@ -7,5 +7,5 @@ App details:
 - like functionality except if you are the owner
 
 
-Try it now -> [Live Demo](https://movies-spa.dimitargegov.website/) !!!
+Try it now -> [Live Demo](https://movies-spa.dimitargegov.site/) !!!
 ![link](https://github.com/MitkoDG/movie-spa/blob/main/screen-shot.jpg)
